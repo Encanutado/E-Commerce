@@ -35,15 +35,30 @@
       margin: auto;
     }
   </style>
+
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <img src= "img/login.png"></img>
-    <form name='formulariologin'></form>
-  </div>
+  <div class="row">   
+    <div class="col">
+      <img src= "img/login.png"></img>
+    </div>
 
-  <script src="js/init.js"></script>
+  <div class="col">
+    <form id='registro'>
+      <input id="name" type="text" placeholder="Tu Nombre"  required/>
+      <input id="pw" type="text" placeholder="Tu Contraseña" required/>
+      <button onclick="guardar(dato.value, pass.value);">Ingresar</button>
+    </form>
+  </div>
+</div> 
+
+<!-- aca tuve que sacar el init.js que estaba linkeado para parar el loop -->
   <script src="js/login.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>
