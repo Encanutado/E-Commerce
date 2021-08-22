@@ -14,7 +14,7 @@ function mostrarProductos(productdata){
 for(let i = 0; i < productdata.length; i++){
         let producto = productdata[i];
 
-document.getElementById("produto"). innerHTML += `
+document.getElementById("produto").innerHTML += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">

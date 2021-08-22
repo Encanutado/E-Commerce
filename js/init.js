@@ -7,6 +7,13 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
+var logeado = localStorage.getItem("nombre");
+              if (logeado === "" || logeado === null){
+            window.location.href = "login.html";
+              }else {
+          alert('Fue logeado satisfactoriamente.')
+}
+
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
