@@ -6,11 +6,15 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 function guardarLogin(nombre, pw){
-    if (nombre.trim() === "" || pw.trim() === ""){
+    if (nombre.trim() === ""){
         alert("Debe ingresar su nombre.");
         console.log(nombre.trim())
 
-} else {
+} else if (pw.trim() === ""){
+ alert("Debe ingresar su contraseña.");
+        console.log(pw.trim())
+}
+else {
         localStorage.setItem("nombre", nombre.trim());
         localStorage.setItem("pw", pw.trim());
 
