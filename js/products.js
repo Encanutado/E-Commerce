@@ -4,12 +4,12 @@
 document.addEventListener("DOMContentLoaded", function (e) {
      getJSONData(PRODUCTS_URL)
     .then((result) => result.data)
-    .then((productdata) => showProductsList(productdata));
+    .then((productdata) => mostrarProductos(productdata));
 });
 
 
 
-function showProductsList(productdata){
+function mostrarProductos(productdata){
 
 for(let i = 0; i < productdata.length; i++){
         let producto = productdata[i];
