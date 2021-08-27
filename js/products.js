@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
     .then((productdata) => mostrarProductos(productdata));
 });
 
-
+var actualListadoProductos = [];
+var criterioActual = [];
 
 function mostrarProductos(productdata){
 
@@ -35,3 +36,6 @@ document.getElementById("produto").innerHTML += `
 }
 }
 
+function ordenarYmostrar (criterio, arrayproductos){
+
+}
