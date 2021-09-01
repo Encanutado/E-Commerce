@@ -11,7 +11,6 @@ var actualListadoProductos = [];
 var criterioActual = [];
 
 function mostrarProductos(productdata){
-
 for(let i = 0; i < productdata.length; i++){
         let producto = productdata[i];
 
@@ -36,6 +35,3 @@ document.getElementById("produto").innerHTML += `
 }
 }
 
-function ordenarYmostrar (criterio, arrayproductos){
-
-}
