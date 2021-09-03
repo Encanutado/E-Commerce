@@ -11,10 +11,13 @@ var actualListadoProductos = [];
 var criterioActual = [];
 
 function mostrarProductos(productdata){
+
+    let productosAMostrar = "";
+
 for(let i = 0; i < productdata.length; i++){
         let producto = productdata[i];
 
-document.getElementById("produto").innerHTML += `
+productosAMostrar += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
@@ -33,6 +36,7 @@ document.getElementById("produto").innerHTML += `
             </a>
             `
 }
+document.getElementById("produto").innerHTML = productosAMostrar;
 }
 
 `/* Ejemplo de filtrado para usar luego: data.filter(function(x){ return x.Price >= 250 && x.Price <= 800}); */`
@@ -40,8 +44,9 @@ document.getElementById("produto").innerHTML += `
 function rangoDePrecio(minRango, maxRango){
     minRango = document.getElementById("minPrecio").value;
     maxRango = document.getElementById("maxPrecio").value;
-
+    actualListadoProductos = productdata
     arr = actualListadoProductos;
-    arr.filter(arr => minRango < arr.cost < maxRango;)
-
+    arr.filter(arr => minRango < arr.cost < maxRango);
+    console.log(arr);
 }
+
