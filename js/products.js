@@ -35,3 +35,13 @@ document.getElementById("produto").innerHTML += `
 }
 }
 
+`/* Ejemplo de filtrado para usar luego: data.filter(function(x){ return x.Price >= 250 && x.Price <= 800}); */`
+
+function rangoDePrecio(minRango, maxRango){
+    minRango = document.getElementById("minPrecio").value;
+    maxRango = document.getElementById("maxPrecio").value;
+
+    arr = actualListadoProductos;
+    arr.filter(arr => minRango < arr.cost < maxRango;)
+
+}
