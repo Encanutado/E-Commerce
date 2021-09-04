@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
 
-function mostrarProductos(productdata){
+function mostrarProductos(arrprod){
 
     let productosAppend = '';
 
-for(let i = 0; i < productdata.length; i++){
-        let producto = productdata[i];
+for(let i = 0; i < arrprod.length; i++){
+        let producto = arrprod[i];
 
         productosAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -57,3 +57,12 @@ function ordmenorPrecio(arrprod) {
     return preciob-precioa;
 })
 }
+
+mostrarProductos(productdata);
+
+document.addEventListener("DOMContentLoaded", function (e) {
+    document.getElementById("sortAsc").addEventListener("click", function(){
+        mostrarProductos(ordmenorPrecio(productdata));
+    });
+})
+
