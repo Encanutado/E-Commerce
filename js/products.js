@@ -40,3 +40,20 @@ for(let i = 0; i < productdata.length; i++){
     document.getElementById("produto").innerHTML = productosAppend;
 }
 
+function ordmenorPrecio(arrprod) {
+    arr = arrprod.sort(function (a,b){
+    let precioa = parseInt(a.cost)
+    let preciob = parseInt(b.cost)
+
+    return precioa-preciob;
+})
+}
+
+function ordmenorPrecio(arrprod) {
+    arr = arrprod.sort(function (a,b){
+    let precioa = parseInt(a.cost)
+    let preciob = parseInt(b.cost)
+
+    return preciob-precioa;
+})
+}
