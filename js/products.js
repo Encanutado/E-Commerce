@@ -3,20 +3,13 @@
 //elementos HTML presentes.
 
 
-document.addEventListener("DOMContentLoaded", function (e) {
-     getJSONData(PRODUCTS_URL)
-    .then((result) => result.data)
-    .then((productdata) => mostrarProductos(productdata));
-});
 
-
-
-function mostrarProductos(arrprod){
+function mostrarProductos(arr){
 
     let productosAppend = '';
 
-for(let i = 0; i < arrprod.length; i++){
-        let producto = arrprod[i];
+for(let i = 0; i < arr.length; i++){
+        let producto = arr[i];
 
         productosAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -40,7 +33,7 @@ for(let i = 0; i < arrprod.length; i++){
     document.getElementById("produto").innerHTML = productosAppend;
 }
 
-function ordmenorPrecio(arrprod) {
+function ordmayorPrecio(arrprod) {
     arr = arrprod.sort(function (a,b){
     let precioa = parseInt(a.cost)
     let preciob = parseInt(b.cost)
@@ -58,11 +51,18 @@ function ordmenorPrecio(arrprod) {
 })
 }
 
-mostrarProductos(productdata);
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    document.getElementById("sortAsc").addEventListener("click", function(){
+     getJSONData(PRODUCTS_URL)
+    .then((result) => result.data)
+    .then((productdata) => mostrarProductos(productdata));
+
+    document.getElementById("sortDescPrice").addEventListener("click", function(){
         mostrarProductos(ordmenorPrecio(productdata));
     });
+
+    document.getElementById("sortAscPrice").addEventListener("click",function(){
+        mostrarProductos(ordmayorPrecio(productdata));
 })
 
+});
