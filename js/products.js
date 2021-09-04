@@ -2,6 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
+
 document.addEventListener("DOMContentLoaded", function (e) {
      getJSONData(PRODUCTS_URL)
     .then((result) => result.data)
@@ -12,10 +13,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 function mostrarProductos(productdata){
 
+    let productosAppend = '';
+
 for(let i = 0; i < productdata.length; i++){
         let producto = productdata[i];
 
-document.getElementById("produto").innerHTML += `
+        productosAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
@@ -34,5 +37,6 @@ document.getElementById("produto").innerHTML += `
             </a>
             `
 }
+    document.getElementById("produto").innerHTML = productosAppend;
 }
 
