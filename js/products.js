@@ -34,35 +34,48 @@ for(let i = 0; i < arr.length; i++){
 }
 
 function ordmayorPrecio(arrprod) {
-    arr = arrprod.sort(function (a,b){
-    let precioa = parseInt(a.cost)
-    let preciob = parseInt(b.cost)
-
-    return precioa-preciob;
-})
+    return arrprod.sort(function (a, b) {
+        let precioa = parseInt(a.cost)
+        let preciob = parseInt(b.cost)
+        return preciob - precioa;
+    })
 }
-
 function ordmenorPrecio(arrprod) {
-    arr = arrprod.sort(function (a,b){
-    let precioa = parseInt(a.cost)
-    let preciob = parseInt(b.cost)
-
-    return preciob-precioa;
-})
+    return arrprod.sort(function (a, b) {
+        let precioa = parseInt(a.cost)
+        let preciob = parseInt(b.cost)
+        return precioa - preciob;
+    })
 }
+
+function ordenarRelevancia(arrprod){
+    return( arrprod.sort(function(a, b) {
+            let aRel = parseInt(a.soldCount);
+            let bRel = parseInt(b.soldCount);
+
+            if ( aRel > bRel ){ return -1; }
+            if ( aRel < bRel ){ return 1; }
+            return 0;
+        }))
+}
+
+
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
-     getJSONData(PRODUCTS_URL)
-    .then((result) => result.data)
-    .then((productdata) => mostrarProductos(productdata));
-
-    document.getElementById("sortDescPrice").addEventListener("click", function(){
-        mostrarProductos(ordmenorPrecio(productdata));
-    });
-
-    document.getElementById("sortAscPrice").addEventListener("click",function(){
-        mostrarProductos(ordmayorPrecio(productdata));
+    getJSONData(PRODUCTS_URL)
+        .then((result) => result.data)
+        .then((productdata) => {
+            mostrarProductos(productdata);
+            document.getElementById("sortDescPrice").addEventListener("click", function () {
+                mostrarProductos(ordmenorPrecio(productdata));
+            });
+            document.getElementById("sortAscPrice").addEventListener("click", function () {
+                mostrarProductos(ordmayorPrecio(productdata));
+            })
+            document.getElementById('sortByRelevance').addEventListener("click", function (){
+                mostrarProductos(ordenarRelevancia(productdata))
 })
-
+        })
+        .catch(handleErrors);
 });
