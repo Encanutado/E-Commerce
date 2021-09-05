@@ -11,6 +11,11 @@ var logeado = localStorage.getItem("nombre");
               if (logeado === "" || logeado === null){
             window.location.href = "login.html";
               }
+let navbar = document.getElementsByClassName("container d-flex flex-column flex-md-row justify-content-between");
+let nav = navbar[0];
+
+nav.innerHTML
+
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -49,4 +54,22 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+var logeado = localStorage.getItem("nombre");
+              if (logeado === "" || logeado === null){
+            window.location.href = "login.html";
+              }
+let navbar = document.getElementsByClassName("container d-flex flex-column flex-md-row justify-content-between");
+let nav = navbar[0];
+
+nav.innerHTML += `<label for="site-search" class="py-2 d-none d-md-inline-block" id="labelbuscar">Buscar:</label>
+                  <input type="search" id="search" name="q" class="py-2 d-none d-md-inline-block">
+                  <button>Search</button> <a class="py-2 d-none d-md-inline-block" href="">Usuario: `+logeado+`</a>`
+
 });
+
+function buscar(arr, busqueda){
+  let abuscar = document.getElementById('search').value;
+  return arr.filter(function(el){
+      return el.toLowerCase().indexOf(busqueda.toLowerCase()) > -1;
+})
+}
