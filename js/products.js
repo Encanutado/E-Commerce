@@ -47,9 +47,18 @@ function ordenarRelevancia(arrprod){
 function rangoPrecio(arrprod){
     let precio1 = document.getElementById('minPrecio').value;
     let precio2 = document.getElementById('maxPrecio').value;
-    return arrprod.filter(costo => (costo.cost > precio1) && (costo.cost < precio2));
-}
 
+    if((precio2 === "")||(precio2 === undefined)){
+    alert("Debe ingresar un precio para poder filtrar los productos.");
+} else {
+    return arrprod.filter(costo => (costo.cost > precio1) && (costo.cost < precio2));
+}}
+
+function limpiar(productdata){
+    document.getElementById('minPrecio').value = "";
+    document.getElementById('maxPrecio').value = "";
+    mostrarProductos(productdata);
+}
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL)
@@ -68,7 +77,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
             document.getElementById('btnFilter').addEventListener("click", function (){
                 mostrarProductos(rangoPrecio(productdata))
 })
-
+             document.getElementById('btnClear').addEventListener("click", function (){
+                mostrarProductos(limpiar(productdata));
+})
         })
         
 });
