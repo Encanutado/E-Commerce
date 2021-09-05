@@ -34,33 +34,31 @@ for(let i = 0; i < arr.length; i++){
 }
 
 function ordmayorPrecio(arrprod) {
-    return arrprod.sort(function (a, b) {
-        let precioa = parseInt(a.cost)
-        let preciob = parseInt(b.cost)
-        return preciob - precioa;
-    })
-}
+    return arrprod.sort((a, b) => a.cost - b.cost)
+    }
+
 function ordmenorPrecio(arrprod) {
-    return arrprod.sort(function (a, b) {
-        let precioa = parseInt(a.cost)
-        let preciob = parseInt(b.cost)
-        return precioa - preciob;
-    })
-}
+    return arrprod.sort((a, b) => b.cost - a.cost)
+    }
 
 function ordenarRelevancia(arrprod){
-    return( arrprod.sort(function(a, b) {
-            let aRel = parseInt(a.soldCount);
-            let bRel = parseInt(b.soldCount);
+    return( arrprod.sort((a, b) => b.soldCount- a.soldCount))}
 
-            if ( aRel > bRel ){ return -1; }
-            if ( aRel < bRel ){ return 1; }
-            return 0;
-        }))
+function rangoPrecio(arrprod){
+    let precio1 = document.getElementById('minPrecio').value;
+    let precio2 = document.getElementById('maxPrecio').value;
+
+    if((precio2 === "")||(precio2 === undefined)){
+    alert("Debe ingresar un precio para poder filtrar los productos.");
+} else {
+    return arrprod.filter(costo => (costo.cost > precio1) && (costo.cost < precio2));
+}}
+
+function limpiar(productdata){
+    document.getElementById('minPrecio').value = "";
+    document.getElementById('maxPrecio').value = "";
+    mostrarProductos(productdata);
 }
-
-
-
 
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL)
@@ -76,6 +74,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
             document.getElementById('sortByRelevance').addEventListener("click", function (){
                 mostrarProductos(ordenarRelevancia(productdata))
 })
+            document.getElementById('btnFilter').addEventListener("click", function (){
+                mostrarProductos(rangoPrecio(productdata))
+})
+             document.getElementById('btnClear').addEventListener("click", function (){
+                mostrarProductos(limpiar(productdata));
+})
         })
-        .catch(handleErrors);
+        
 });
