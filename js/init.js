@@ -50,6 +50,7 @@ var getJSONData = function(url){
     });
 }
 
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -63,13 +64,8 @@ let nav = navbar[0];
 
 nav.innerHTML += `<label for="site-search" class="py-2 d-none d-md-inline-block" id="labelbuscar">Buscar:</label>
                   <input type="search" id="search" name="q" class="py-2 d-none d-md-inline-block">
-                  <button>Search</button> <a class="py-2 d-none d-md-inline-block" href="">Usuario: `+logeado+`</a>`
+                  <a class="py-2 d-none d-md-inline-block" href="">Usuario: `+logeado+`</a>`
 
 });
 
-function buscar(arr, busqueda){
-  let abuscar = document.getElementById('search').value;
-  return arr.filter(function(el){
-      return el.toLowerCase().indexOf(busqueda.toLowerCase()) > -1;
-})
-}
+

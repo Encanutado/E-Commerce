@@ -80,6 +80,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
              document.getElementById('btnClear').addEventListener("click", function (){
                 mostrarProductos(limpiar(productdata));
 })
+            document.getElementById('search').addEventListener("keyup", function (){
+                mostrarProductos(busqueda(productdata, busqueda));
+})
+
         })
         
 });
