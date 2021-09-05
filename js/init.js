@@ -50,6 +50,12 @@ var getJSONData = function(url){
     });
 }
 
+function busqueda(arrprod, busqueda){
+  busqueda = document.getElementById("search").value;
+  return arrprod.filter(function(el) {
+      return el.toLowerCase().indexOf(busqueda.toLowerCase()) > -1;
+  })
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
