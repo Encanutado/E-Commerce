@@ -44,13 +44,11 @@ function ordmenorPrecio(arrprod) {
 function ordenarRelevancia(arrprod){
     return( arrprod.sort((a, b) => b.soldCount- a.soldCount))}
 
-/* function rangoPrecio(arrprod){
-   let precio1 = document.getElementById('minPrecio').value;
-   let precio2 = document.getElementById('maxPrecio').value;
-    arrprod.sort(function(a,b){
-
-})
-} */
+function rangoPrecio(arrprod){
+    let precio1 = document.getElementById('minPrecio').value;
+    let precio2 = document.getElementById('maxPrecio').value;
+    return arrprod.filter(costo => (costo.cost > precio1) && (costo.cost < precio2));
+}
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -67,6 +65,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
             document.getElementById('sortByRelevance').addEventListener("click", function (){
                 mostrarProductos(ordenarRelevancia(productdata))
 })
+            document.getElementById('btnFilter').addEventListener("click", function (){
+                mostrarProductos(rangoPrecio(productdata))
+})
+
         })
-        .catch(handleErrors);
+        
 });
