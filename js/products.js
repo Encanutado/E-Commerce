@@ -34,19 +34,12 @@ for(let i = 0; i < arr.length; i++){
 }
 
 function ordmayorPrecio(arrprod) {
-    return arrprod.sort(function (a, b) {
-        let precioa = parseInt(a.cost)
-        let preciob = parseInt(b.cost)
-        return preciob - precioa;
-    })
-}
+    return arrprod.sort((a, b) => a.cost - b.cost)
+    }
+
 function ordmenorPrecio(arrprod) {
-    return arrprod.sort(function (a, b) {
-        let precioa = parseInt(a.cost)
-        let preciob = parseInt(b.cost)
-        return precioa - preciob;
-    })
-}
+    return arrprod.sort((a, b) => b.cost - a.cost)
+    }
 
 function ordenarRelevancia(arrprod){
     return( arrprod.sort(function(a, b) {
@@ -59,7 +52,12 @@ function ordenarRelevancia(arrprod){
         }))
 }
 
+function rangoPrecio(arrprod){
+    document.
+    arrprod.sort(function(a,b){
 
+})
+}
 
 
 document.addEventListener("DOMContentLoaded", function (e) {

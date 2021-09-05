@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 
+
 function guardarLogin(nombre, pw){
     if (nombre.trim() === ""){
         alert("Debe ingresar su nombre.");
