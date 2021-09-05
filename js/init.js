@@ -50,12 +50,13 @@ var getJSONData = function(url){
     });
 }
 
-function busqueda(arrprod, busqueda){
-  busqueda = document.getElementById("search").value;
-  return arrprod.filter(function(el) {
-      return el.toLowerCase().indexOf(busqueda.toLowerCase()) > -1;
-  })
-}
+function busqueda (arrprod){
+  let busq = document.getElementById("search").value;
+   return arrprod.filter(prod => prod.name.toLowerCase().indexOf(busq.toLowerCase()) > -1 );
+  }
+
+
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -71,7 +72,6 @@ let nav = navbar[0];
 nav.innerHTML += `<label for="site-search" class="py-2 d-none d-md-inline-block" id="labelbuscar">Buscar:</label>
                   <input type="search" id="search" name="q" class="py-2 d-none d-md-inline-block">
                   <a class="py-2 d-none d-md-inline-block" href="">Usuario: `+logeado+`</a>`
-
 });
 
 
