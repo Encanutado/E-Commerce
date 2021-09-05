@@ -34,11 +34,11 @@ for(let i = 0; i < arr.length; i++){
 }
 
 function ordmayorPrecio(arrprod) {
-    return arrprod.sort((a, b) => a.cost - b.cost)
+    return arrprod.sort((a, b) => b.cost - a.cost)
     }
 
 function ordmenorPrecio(arrprod) {
-    return arrprod.sort((a, b) => b.cost - a.cost)
+    return arrprod.sort((a, b) => a.cost - b.cost)
     }
 
 function ordenarRelevancia(arrprod){
@@ -80,6 +80,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
              document.getElementById('btnClear').addEventListener("click", function (){
                 mostrarProductos(limpiar(productdata));
 })
+            document.getElementById('search').addEventListener("keyup", function (){
+                mostrarProductos(busqueda(productdata, busqueda));
+})
+
         })
         
 });
