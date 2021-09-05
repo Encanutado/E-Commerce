@@ -42,22 +42,15 @@ function ordmenorPrecio(arrprod) {
     }
 
 function ordenarRelevancia(arrprod){
-    return( arrprod.sort(function(a, b) {
-            let aRel = parseInt(a.soldCount);
-            let bRel = parseInt(b.soldCount);
+    return( arrprod.sort((a, b) => b.soldCount- a.soldCount))}
 
-            if ( aRel > bRel ){ return -1; }
-            if ( aRel < bRel ){ return 1; }
-            return 0;
-        }))
-}
-
-function rangoPrecio(arrprod){
-    document.
+/* function rangoPrecio(arrprod){
+   let precio1 = document.getElementById('minPrecio').value;
+   let precio2 = document.getElementById('maxPrecio').value;
     arrprod.sort(function(a,b){
 
 })
-}
+} */
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
