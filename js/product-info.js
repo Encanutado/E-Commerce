@@ -11,6 +11,16 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 });
 
+var productInformation = {};
+
+let productName = document.getElementById("productName");
+let productDescr = document.getElementById("productDescription");
+let productCost = document.getElementById("costo");
+let productSoldCount = document.getElementById("cantidadVendidos");
+let productCategory = document.getElementById("productCategory");
+let relatedProduct = document.getElementById("relatedProducts");
+
+
 function showImages(array){
 
     let htmlContentToAppend = "";
