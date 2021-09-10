@@ -1,17 +1,23 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+let productInformation = {}
+
 document.addEventListener("DOMContentLoaded", function(e){
         getJSONData(PRODUCT_INFO_URL)
             .then((result) => result.data)
-            .then((productinfodata) =>{
-                showImages(productinfodata.images)
+            .then((productInfoData) =>{
 
+                productInformation = productInfoData.data
+                showImages(productInfoData.images)
 
+                productName.innerHTML = productInfoData.name;
+                productDescr.innerHTML = productInfoData.description;
+                productCost.innerHTML = (productInfoData.cost + productInfoData.currency);
+                productSoldCount.innerHTML = productInfoData.soldCount;
+                productCategory.innerHTML = productInfoData.category;
+                productCategory.innerHTML = productInfoData.relatedProducts;
 });
 });
 
-var productInformation = {};
+
 
 let productName = document.getElementById("productName");
 let productDescr = document.getElementById("productDescription");
