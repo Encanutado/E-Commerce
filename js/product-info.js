@@ -14,9 +14,18 @@ document.addEventListener("DOMContentLoaded", function(e){
                 productSoldCount.innerHTML = productInfoData.soldCount;
                 productCategory.innerHTML = productInfoData.category;
                 relatedProduct.innerHTML = productInfoData.relatedProducts;
+
 });
 });
 
+document.addEventListener("DOMContentLoaded", function(e){
+    getJSONData(PRODUCT_INFO_COMMENTS_URL)
+        .then((result) => result.data)
+        .then((productComments) =>{
+
+            showComments(productComments)
+        });
+});
 
 
 let productName = document.getElementById("productName");
@@ -44,6 +53,21 @@ function showImages(array){
 
         document.getElementById("illustrImages").innerHTML = htmlContentToAppend;
     }
+}
+
+function showComments(arr){
+    let htmlContentToAppend ="";
+
+    for(let i=0; i < arr.length; i++){
+        let comment = arr[i];
+
+        htmlContentToAppend += `
+        <div>
+            <p>Comentario: `+ comment.description +`</p>
+            <p>Usuario: `+comment.user+ ` (`+ comment.dateTime +`) Puntuación: `+ comment.score +` </p>
+        </div>`
+    }
+    document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 }
 
 
