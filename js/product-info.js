@@ -4,8 +4,11 @@
 document.addEventListener("DOMContentLoaded", function(e){
         getJSONData(PRODUCT_INFO_URL)
             .then((result) => result.data)
-            .then((productdata) =>{});
+            .then((productinfodata) =>{
 
+
+
+});
 });
 
 /*  <i class="fas fa-star"></i>  */
