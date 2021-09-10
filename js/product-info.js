@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 productCost.innerHTML = (productInfoData.cost + productInfoData.currency);
                 productSoldCount.innerHTML = productInfoData.soldCount;
                 productCategory.innerHTML = productInfoData.category;
-                productCategory.innerHTML = productInfoData.relatedProducts;
+                relatedProduct.innerHTML = productInfoData.relatedProducts;
 });
 });
 
