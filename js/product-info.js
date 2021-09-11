@@ -62,10 +62,27 @@ function showComments(arr){
         let comment = arr[i];
 
         htmlContentToAppend += `
-        <div>
-            <p>Comentario: `+ comment.description +`</p>
-            <p>Usuario: `+comment.user+ ` (`+ comment.dateTime +`) Puntuación: `+ comment.score +` </p>
-        </div>`
+        <div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="card card-white post">
+                <div class="post-heading">
+                    <div class="float-left meta">
+                        <div class="title h5">
+                            <p id="usuario"><b>+`+ comment.user +`+</b></p>
+                        </div>
+                        <h6 class="text-muted time">`+comment.dateTime +`</h6>
+                    </div>
+                </div>
+                <div class="post-description">
+                    <p>`+comment.description+`</p>
+                    <p class="score">Puntuación: `+comment.score+`</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>`
     }
     document.getElementById("comentarios").innerHTML = htmlContentToAppend;
 }
