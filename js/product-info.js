@@ -76,6 +76,9 @@ function showComments(arr){
                 </div>
                 <div class="post-description">
                     <p>`+comment.description+`</p>
+                    <label for="score" class="btn">Puntaje
+                    <input type="range" min="0" max="5" id="score">
+                    </label>
                     <p class="score">Puntuación: `+comment.score+`</p>
                 </div>
             </div>
