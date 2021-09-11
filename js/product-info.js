@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         .then((result) => result.data)
         .then((productComments) =>{
 
-            showComments(productComments)
+            showComments(productComments);
         });
 });
 
