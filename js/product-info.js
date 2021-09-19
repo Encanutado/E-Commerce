@@ -79,7 +79,7 @@ function showComments(arr){
                     <label for="score" class="btn">Puntaje
                     <input type="range" min="0" max="5" id="score">
                     </label>
-                    <p class="score">Puntuación: `+comment.score+`</p>
+                    <p class="score">Puntuación: `+showStars(comment.score)+ blockStars(5-comment.score)+`</p>
                 </div>
             </div>
         </div>
@@ -91,4 +91,16 @@ function showComments(arr){
 }
 
 
-/*  <i class="fas fa-star"></i>  */
+function blockStars(stars){
+    let res = "";
+    for (i=0; i < stars; i++){          
+ res += `<span class="fa fa-star"></span>`}
+return res;
+}
+
+function showStars(stars){
+    let res = "";
+    for (i=0; i < stars; i++){          
+ res += `<span class="fa fa-star checked"></span>`}
+return res;
+}
