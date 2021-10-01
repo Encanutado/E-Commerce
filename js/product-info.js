@@ -93,14 +93,23 @@ function showComments(arr){
 
 function blockStars(stars){
     let res = "";
-    for (i=0; i < stars; i++){          
+    for (i=0; i < stars; i++){
  res += `<span class="fa fa-star"></span>`}
 return res;
 }
 
 function showStars(stars){
     let res = "";
-    for (i=0; i < stars; i++){          
+    for (i=0; i < stars; i++){
  res += `<span class="fa fa-star checked"></span>`}
 return res;
 }
+
+const relatedProductsData =  async() => {
+    const products_info_data = await getJSONData(PRODUCT_INFO_URL);
+    const related_products_data = await getJSONData(PRODUCTS_URL);
+    console.log(products_info_data),
+    console.log(related_products_data);
+}
+
+relatedProductsData();
