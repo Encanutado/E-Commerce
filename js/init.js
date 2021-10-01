@@ -47,19 +47,34 @@ function busqueda (arrprod){
 
 
 
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 var logeado = localStorage.getItem("nombre");
               if (logeado === "" || logeado === null){
             window.location.href = "login.html";
               }
+ 
+
+//Elementos de la barra de navegacion.
+
 let navbar = document.getElementsByClassName("container d-flex flex-column flex-md-row justify-content-between");
 let nav = navbar[0];
 
 nav.innerHTML += `<label for="site-search" class="py-2 d-none d-md-inline-block" id="labelbuscar">Buscar:</label>
                   <input type="search" id="search" name="q" class="py-2 d-none d-md-inline-block">
-                  <a class="py-2 d-none d-md-inline-block" href="">Usuario: `+logeado+`</a>`
+                  <div class="btn-group">
+                  <a type="button" class="btn btn-primary" id="usuarioLogeado" href="my-profile.html">`+logeado+`</a>
+                  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+                  <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" id="cerrar" href="index.html" onclick="cerrarSesion()">Cerrar sesión</a>
+                  </div>
+                </div>`
 });
+
+function cerrarSesion(){
+    localStorage.removeItem("nombre")
+}
