@@ -44,11 +44,10 @@ function showImages(array){
         let imagepot = array[i];
 
         htmlContentToAppend += `
-        <div class="carousel-item active">
-                <img class="d-block w-100" src="` + imagepot[1] + `" alt="">
-        </div>
-        <div class="carousel-item">
-                <img class="d-block w-100" src="` + imagepot + `" alt="">
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="d-block mb-4 h-100">
+                <img class="img-fluid img-thumbnail" src="` + imagepot + `" alt="">
+            </div>
         </div>
         `
 
