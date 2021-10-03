@@ -1,3 +1,5 @@
+//Funcionalidades para mostrar la información de los productos de manera dinámica. (Nombre, descripción, precio, categoría, e imágenes.)
+
 let productInformation = {}
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -13,10 +15,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                 productCost.innerHTML = (productInfoData.cost + productInfoData.currency);
                 productSoldCount.innerHTML = productInfoData.soldCount;
                 productCategory.innerHTML = productInfoData.category;
-                relatedProduct.innerHTML = productInfoData.relatedProducts;
+});
+});
 
-});
-});
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_COMMENTS_URL)
@@ -54,6 +55,8 @@ function showImages(array){
         document.getElementById("illustrImages").innerHTML = htmlContentToAppend;
     }
 }
+
+//Sección dedicada a mostrar los comentarios y la puntuación como estrellas.
 
 function showComments(arr){
     let htmlContentToAppend ="";
@@ -93,14 +96,73 @@ function showComments(arr){
 
 function blockStars(stars){
     let res = "";
-    for (i=0; i < stars; i++){          
+    for (i=0; i < stars; i++){
  res += `<span class="fa fa-star"></span>`}
 return res;
 }
 
 function showStars(stars){
     let res = "";
-    for (i=0; i < stars; i++){          
+    for (i=0; i < stars; i++){
  res += `<span class="fa fa-star checked"></span>`}
 return res;
+}
+
+
+
+//Funciones dedicadas a mostrar los productos relacionados enlazando los dos arrays.
+
+
+
+document.addEventListener("DOMContentLoaded", function(e){
+const relatedProductsData =  async() => {
+    const products_info_data = await getJSONData(PRODUCT_INFO_URL);
+    const products_data = await getJSONData(PRODUCTS_URL);
+    const products_info_result = products_info_data.data;
+    const products_result = products_data.data;
+    let   related_products = products_info_result.relatedProducts;
+
+
+    console.log(products_info_result);
+    console.log(products_result);
+    console.log(related_products);
+    
+    //Filtro el array de productos en base a los productos relacionados con la funcion declarada mas abajo.
+
+    let result = filterRelatedProducts(products_result, related_products)
+    console.log(result);
+
+    //Muestro el resultado en pantalla con la funcion declarada mas abajo.
+
+    showRelated(result);
+    
+    
+}
+relatedProductsData();
+});
+
+function filterRelatedProducts(arr1, arr2){
+    let result = arr2.map((item) => arr1[item]);
+    return result;
+}
+
+function showRelated(array){
+
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < array.length; i++){
+        let related = array[i];
+
+        htmlContentToAppend += `
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="`+ related.imgSrc +`" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">`+ related.name +`</h5>
+                <p class="card-text">`+ related.description +`</p>
+                <a href="product-info.html" class="btn btn-primary">Ir al producto</a>
+                </div>
+            </div> `
+
+        relatedProduct.innerHTML = htmlContentToAppend;
+    }
 }
