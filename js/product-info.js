@@ -15,11 +15,9 @@ document.addEventListener("DOMContentLoaded", function(e){
                 productCost.innerHTML = (productInfoData.cost + productInfoData.currency);
                 productSoldCount.innerHTML = productInfoData.soldCount;
                 productCategory.innerHTML = productInfoData.category;
-                relatedProduct.innerHTML = productInfoData.relatedProducts;
-
-
 });
 });
+
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_COMMENTS_URL)
@@ -133,6 +131,10 @@ const relatedProductsData =  async() => {
 
     let result = filterRelatedProducts(products_result, related_products)
     console.log(result);
+
+    //Muestro el resultado en pantalla con la funcion declarada mas abajo.
+
+    showRelated(result);
     
     
 }
@@ -142,4 +144,25 @@ relatedProductsData();
 function filterRelatedProducts(arr1, arr2){
     let result = arr2.map((item) => arr1[item]);
     return result;
+}
+
+function showRelated(array){
+
+    let htmlContentToAppend = "";
+
+    for(let i = 0; i < array.length; i++){
+        let related = array[i];
+
+        htmlContentToAppend += `
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="`+ related.imgSrc +`" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">`+ related.name +`</h5>
+                <p class="card-text">`+ related.description +`</p>
+                <a href="product-info.html" class="btn btn-primary">Ir al producto</a>
+                </div>
+            </div> `
+
+        relatedProduct.innerHTML = htmlContentToAppend;
+    }
 }
