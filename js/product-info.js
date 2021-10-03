@@ -1,3 +1,5 @@
+//Funcionalidades para mostrar la información de los productos de manera dinámica.
+
 let productInformation = {}
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function(e){
                 productSoldCount.innerHTML = productInfoData.soldCount;
                 productCategory.innerHTML = productInfoData.category;
                 relatedProduct.innerHTML = productInfoData.relatedProducts;
+
 
 });
 });
@@ -54,6 +57,8 @@ function showImages(array){
         document.getElementById("illustrImages").innerHTML = htmlContentToAppend;
     }
 }
+
+//Sección dedicada a mostrar los comentarios y la puntuación.
 
 function showComments(arr){
     let htmlContentToAppend ="";
@@ -105,11 +110,20 @@ function showStars(stars){
 return res;
 }
 
+//Funciones dedicadas a mostrar los productos relacionados enlazando los dos arrays.
+
+document.addEventListener("DOMContentLoaded", function(e){
 const relatedProductsData =  async() => {
     const products_info_data = await getJSONData(PRODUCT_INFO_URL);
-    const related_products_data = await getJSONData(PRODUCTS_URL);
-    console.log(products_info_data),
-    console.log(related_products_data);
+    const products_data = await getJSONData(PRODUCTS_URL);
+    const products_info_result = products_info_data.data;
+    const products_result = products_data.data;
+    let   related_products = products_info_result.relatedProducts;
+
+    console.log(products_info_result);
+    console.log(products_result);
+    console.log(related_products);
 }
 
 relatedProductsData();
+});
