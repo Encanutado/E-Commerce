@@ -1,4 +1,4 @@
-//Funcionalidades para mostrar la información de los productos de manera dinámica.
+//Funcionalidades para mostrar la información de los productos de manera dinámica. (Nombre, descripción, precio, categoría, e imágenes.)
 
 let productInformation = {}
 
@@ -58,7 +58,7 @@ function showImages(array){
     }
 }
 
-//Sección dedicada a mostrar los comentarios y la puntuación.
+//Sección dedicada a mostrar los comentarios y la puntuación como estrellas.
 
 function showComments(arr){
     let htmlContentToAppend ="";
@@ -110,7 +110,11 @@ function showStars(stars){
 return res;
 }
 
+
+
 //Funciones dedicadas a mostrar los productos relacionados enlazando los dos arrays.
+
+
 
 document.addEventListener("DOMContentLoaded", function(e){
 const relatedProductsData =  async() => {
@@ -120,10 +124,22 @@ const relatedProductsData =  async() => {
     const products_result = products_data.data;
     let   related_products = products_info_result.relatedProducts;
 
+
     console.log(products_info_result);
     console.log(products_result);
     console.log(related_products);
-}
+    
+    //Filtro el array de productos en base a los productos relacionados con la funcion declarada mas abajo.
 
+    let result = filterRelatedProducts(products_result, related_products)
+    console.log(result);
+    
+    
+}
 relatedProductsData();
 });
+
+function filterRelatedProducts(arr1, arr2){
+    let result = arr2.map((item) => arr1[item]);
+    return result;
+}
