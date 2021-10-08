@@ -256,7 +256,7 @@ a.custom-card:hover {
 /* Estilos para el carrito. */
 
 .payment-info {
-    background: blue;
+    background: lightgreen;
     padding: 10px;
     border-radius: 6px;
     color: #fff;
@@ -315,8 +315,8 @@ label.radio span {
 }
 
 label.radio input:checked+span {
-    border-color: #fff;
-    background-color: blue;
+    border-color: rgb(8, 0, 0);
+    background-color: gree;
     color: #fff
 }
 
@@ -327,7 +327,7 @@ label.radio input:checked+span {
 }
 
 .credit-inputs::placeholder {
-    color: #fff;
+    color: rgb(5, 1, 1);
     font-size: 13px
 }
 
