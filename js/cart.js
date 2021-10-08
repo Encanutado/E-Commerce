@@ -26,7 +26,9 @@ function appendCartItems(arr){
             <div class="d-flex flex-row"><img class="rounded" src=`+cartItem.src+` width="40">
                 <div class="ml-2"><span class="font-weight-bold d-block">`+cartItem.name+`</span></div>
             </div>
-                <div class="d-flex flex-row align-items-center"><span class="d-block">`+cartItem.count+`</span><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                <div class="d-flex flex-row align-items-center"></div><label for="tentacles">Cantidad:</label>
+            <input type="number" id="tentacles" name="tentacles" placeholder="`+cartItem.count+`"
+            min="0"><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
         </div>
         <hr>
         `
