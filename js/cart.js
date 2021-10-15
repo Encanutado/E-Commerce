@@ -26,7 +26,8 @@ const cartData =  async() => {
 let cartItems = document.getElementById('cartItems');
 let cartPayment = document.getElementById('cartPayment'); 
 let total;
-let subtotal = manejable.unitCost;
+let subtotal;
+
 
 function appendCartItems(arr){
     let htmlContentToAppend = '';
@@ -55,6 +56,8 @@ function appendCartItems(arr){
             let input = e.target
             let actualValue = input.value;
             let dataquantity = input.dataset.indexNumber;
-            cartList[dataquantity].count = +actualValue; 
+            cartList[dataquantity].count = +actualValue;
+            subtotal = 
+
 })
 }}
