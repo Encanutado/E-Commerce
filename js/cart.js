@@ -25,6 +25,8 @@ const cartData =  async() => {
 //Almaceno las secciones del HTML destinadas al carrito en variables para appendear contenido. 
 let cartItems = document.getElementById('cartItems');
 let cartPayment = document.getElementById('cartPayment'); 
+let total;
+let subtotal = manejable.unitCost;
 
 function appendCartItems(arr){
     let htmlContentToAppend = '';
@@ -42,6 +44,7 @@ function appendCartItems(arr){
             min="0"><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
         </div>
         <hr>
+        <p>Total:`+total+`</p>
         `
 
         cartItems.innerHTML = htmlContentToAppend;
@@ -49,9 +52,9 @@ function appendCartItems(arr){
     let quantity  = document.querySelectorAll('input.cartero');
         for (cant of quantity){
             cant.addEventListener("input",function(e){
-            let actualValue = e.target.value;
-            let dataquantity = e.dataset.indexNumber;
-            cartList[dataquantity].count = actualValue;
-
+            let input = e.target
+            let actualValue = input.value;
+            let dataquantity = input.dataset.indexNumber;
+            cartList[dataquantity].count = +actualValue; 
 })
 }}
