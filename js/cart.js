@@ -1,6 +1,5 @@
 //Pedido de informacion al JSON conteniendo los elementos del carrito precargados.
 document.addEventListener("DOMContentLoaded", function(e){
-    
     cartData();
 })
 
@@ -22,9 +21,9 @@ const cartData =  async() => {
 
 
 
-//Almaceno las secciones del HTML destinadas al carrito en variables para appendear contenido. 
+//Almaceno las secciones del HTML destinadas al carrito en variables para appendear contenido.
 let cartItems = document.getElementById('cartItems');
-let cartPayment = document.getElementById('cartPayment'); 
+let cartPayment = document.getElementById('cartPayment');
 let total;
 let subtotal;
 
@@ -57,7 +56,11 @@ function appendCartItems(arr){
             let actualValue = input.value;
             let dataquantity = input.dataset.indexNumber;
             cartList[dataquantity].count = +actualValue;
-            subtotal = 
+            subtotal;
 
 })
 }}
+
+
+//Ahora tengo que hacer las funcionalidades para que se sume al total segun la cantidad.
+
