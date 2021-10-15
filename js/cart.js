@@ -1,13 +1,24 @@
 //Pedido de informacion al JSON conteniendo los elementos del carrito precargados.
 document.addEventListener("DOMContentLoaded", function(e){
-     getJSONData(CART_INFO_URL)
-            .then((result) => result.data)
-            .then((cartInfo) =>{
-                const cartData = cartInfo.articles;
-                console.log(cartData);
-                appendCartItems(cartData);
-});
-});
+    
+    cartData();
+})
+
+let cartList;
+
+const cartData =  async() => {
+    const cartInfo = await getJSONData(CART_Desafiate);
+    const cartInfoData = cartInfo.data;
+    const manejable = cartInfoData.articles;
+    appendCartItems(manejable);
+    cartList = manejable;
+}
+
+
+
+
+
+
 
 
 
@@ -27,7 +38,7 @@ function appendCartItems(arr){
                 <div class="ml-2"><span class="font-weight-bold d-block">`+cartItem.name+`</span></div>
             </div>
                 <div class="d-flex flex-row align-items-center"></div><label for="tentacles">Cantidad:</label>
-            <input type="number" id="tentacles" name="tentacles" placeholder="`+cartItem.count+`"
+            <input class="cartero" data-index-number="`+i+`" type="number" placeholder="`+cartItem.count+`"
             min="0"><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
         </div>
         <hr>
@@ -35,4 +46,12 @@ function appendCartItems(arr){
 
         cartItems.innerHTML = htmlContentToAppend;
     }
-}
+    let quantity  = document.querySelectorAll('input.cartero');
+        for (cant of quantity){
+            cant.addEventListener("input",function(e){
+            let actualValue = e.target.value;
+            let dataquantity = e.dataset.indexNumber;
+            cartList[dataquantity].count = actualValue;
+
+})
+}}
