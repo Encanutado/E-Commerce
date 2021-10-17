@@ -55,8 +55,9 @@ function appendCartItems(arr){
 
 function quantityFunctionalities(){
     let quantity  = document.querySelectorAll('input.cartero');
-    let totality = 0;
-    let subtotality = 0;
+    let total = 0;
+    let subTotal1 = 0;
+    let subTotal2 = 0;
 
             for (cant of quantity){
                 cant.addEventListener("input",function(e){
@@ -67,17 +68,29 @@ function quantityFunctionalities(){
                 let htmlSub = document.getElementById(`subTotal`+dataquantity+``);
                 let htmlTot = document.getElementById('total');
                 let htmlSubToAppend = '';
-                console.log(input.dataset.indexNumber);
-
+                /* let premiumDelivery = (subTotal * 0.15);
+                let expressDelivery = (subTotal * 0.7);
+                let standardDelivery = (subTotal * 0.5); 
+                let radioPremium = document.getElementById('premium');
+                let radioExpress = document.getElementById('express'); */
+                
     //Funcionalidades:
                 cartList[dataquantity].count = +actualValue;
-                //totallyTheSubTotal = (actualValue * cartList[dataquantity].unitCost);
-                subtotality = (actualValue * cartList[dataquantity].unitCost);
-                total = totality;
+                
+                if (dataquantity === '1'){
+                    subTotal2= (actualValue * (cartList[dataquantity].unitCost * 40))
+                    htmlSubToAppend += `Subtotal: UYU$ `+subTotal2+``;
+                }else {
+                    subTotal1 = (actualValue * cartList[dataquantity].unitCost);
+                    htmlSubToAppend += `Subtotal: UYU$ `+subTotal1+``;                    
+                }
 
+                total = subTotal2+ subTotal1;
+
+                    
     //Mostrar en pantalla:
-                //htmlSubToAppend += `Subtotal: `+totallyTheSubTotal+``;
-                htmlSubToAppend += `Subtotal: `+subtotality+``;
+                
+                htmlTot.innerHTML = `Total: UYU$ `+total+``
                 htmlSub.innerHTML = htmlSubToAppend;
 
                 

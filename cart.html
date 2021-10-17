@@ -77,8 +77,8 @@ input[type="radio"] {
                 <div class="d-flex justify-content-between"><span></span>
                 </div>
                 <div id="cartItems">
-                <span id="total" class="d-block ml-5 font-weight-bold">Total:</span>
                 </div>
+                <p id="total" class="d-block ml-5 font-weight-bold"></p>
               </div>
             </div>
         <div class="col-md-4">
@@ -113,6 +113,26 @@ input[type="radio"] {
                                         <div class="form-group mb-4"> <label data-toggle="tooltip" title="Código de tres dígitos en la parte posterior de la tarjeta.">
                                                 <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
                                             </label> <input type="text" required class="form-control"> </div>
+                                    </div>
+                                    <div id='envio'>
+                                      <p>Selecciona tu tipo de envío:</p>
+
+                                      <div>
+                                        <input type="radio" id="premium" name="envío"
+                                               checked>
+                                        <label for="premium">Premium (2-5 días)</label>
+                                      </div>
+                                      
+                                      <div>
+                                        <input type="radio" id="express" name="envío">
+                                        <label for="express">Express (5-8 días)</label>
+                                      </div>
+                                      
+                                      <div> 
+                                        <input type="radio" id="standard" name="envío">
+                                        <label for="standard">Standard (12-15 días)</label>
+                                      </div>
+                                      
                                     </div>
                                 </div>
                                 <div class="card-footer"> <button type="button" class="subscribe btn btn-primary btn-block shadow-sm"> Confirmar Pago! </button>
