@@ -56,6 +56,8 @@ function appendCartItems(arr){
 function quantityFunctionalities(){
     let quantity  = document.querySelectorAll('input.cartero');
     let totality = 0;
+    let subtotality = 0;
+
             for (cant of quantity){
                 cant.addEventListener("input",function(e){
     //Inicializo las variables que voy a necesitar:
@@ -65,21 +67,18 @@ function quantityFunctionalities(){
                 let htmlSub = document.getElementById(`subTotal`+dataquantity+``);
                 let htmlTot = document.getElementById('total');
                 let htmlSubToAppend = '';
-                let htmlTotalToAppend = '';
                 console.log(input.dataset.indexNumber);
 
     //Funcionalidades:
                 cartList[dataquantity].count = +actualValue;
                 //totallyTheSubTotal = (actualValue * cartList[dataquantity].unitCost);
-                totality = totality + (actualValue * cartList[dataquantity].unitCost);
+                subtotality = (actualValue * cartList[dataquantity].unitCost);
                 total = totality;
 
     //Mostrar en pantalla:
                 //htmlSubToAppend += `Subtotal: `+totallyTheSubTotal+``;
-                htmlSubToAppend += `Subtotal: `+totality+``;
+                htmlSubToAppend += `Subtotal: `+subtotality+``;
                 htmlSub.innerHTML = htmlSubToAppend;
-                htmlTotalToAppend += `Total: `+total+``;
-                htmlTot.innerHTML = htmlTotalToAppend;
 
                 
 })}
