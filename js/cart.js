@@ -4,20 +4,16 @@ document.addEventListener("DOMContentLoaded", function(e){
 })
 
 let cartList;
+let subTotal;
+
 
 const cartData =  async() => {
     const cartInfo = await getJSONData(CART_Desafiate);
     const cartInfoData = cartInfo.data;
     const manejable = cartInfoData.articles;
-    appendCartItems(manejable);
     cartList = manejable;
+    appendCartItems(manejable);
 }
-
-
-
-
-
-
 
 
 
@@ -38,26 +34,42 @@ function appendCartItems(arr){
                 <div class="ml-2"><span class="font-weight-bold d-block">`+cartItem.name+`</span></div>
             </div>
                 <div class="d-flex flex-row align-items-center"></div><label for="tentacles">Cantidad:</label>
-            <input class="cartero" data-index-number="`+i+`" type="number" placeholder="`+cartItem.count+`"
-            min="0"><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+            <input class="cartero" id=`+i+` data-index-number="`+i+`" type="number" placeholder="`+cartItem.count+`"
+            min="0"><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><span id="subTotal" class="d-block ml-5 font-weight-bold">Subtotal: `+subTotal+`</span></div>
         </div>
         <hr>
-        <p>Total:`+total+`</p>
+        <span id="total" class="d-block ml-5 font-weight-bold"></span>
         `
 
         cartItems.innerHTML = htmlContentToAppend;
     }
-    let quantity  = document.querySelectorAll('input.cartero');
-        for (cant of quantity){
-            cant.addEventListener("input",function(e){
-            let input = e.target
-            let actualValue = input.value;
-            let dataquantity = input.dataset.indexNumber;
-            cartList[dataquantity].count = +actualValue;
 
-})
-}}
+    quantityFunctionalities();
+    
+
+}
+
+
 
 
 //Ahora tengo que hacer las funcionalidades para que se sume al total segun la cantidad.
 
+function quantityFunctionalities(){
+    let quantity  = document.querySelectorAll('input.cartero');
+            for (cant of quantity){
+                cant.addEventListener("input",function(e){
+    //Inicializo las variables que voy a necesitar:
+                let input = e.target
+                let actualValue = input.value;
+                let dataquantity = input.dataset.indexNumber;
+    //Funcionalidades:
+                cartList[dataquantity].count = +actualValue;
+})}
+
+const priceArr = Array.from(quantity).map(item => parseInt(item.value));
+console.log(priceArr);
+}
+
+let quantity  = document.querySelectorAll('input.cartero');
+const priceArr = Array.from(quantity).map(item => parseInt(item.value));
+console.log(priceArr);
