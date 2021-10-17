@@ -97,6 +97,3 @@ function quantityFunctionalities(){
 })}
 }
 
-/* let quantity  = document.querySelectorAll('input.cartero');
-const priceArr = Array.from(quantity).map(item => parseInt(item.value));
-console.log(priceArr); */
