@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 })
 
 let cartList;
-let subTotal;
 
 
 const cartData =  async() => {
@@ -35,7 +34,7 @@ function appendCartItems(arr){
             </div>
                 <div class="d-flex flex-row align-items-center"></div><label for="tentacles">Cantidad:</label>
             <input class="cartero" id=`+i+` data-index-number="`+i+`" type="number" placeholder="`+cartItem.count+`"
-            min="0"><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><span id="subTotal" class="d-block ml-5 font-weight-bold">Subtotal: `+subTotal+`</span></div>
+            min="0"><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><span id="subTotal" class="d-block ml-5 font-weight-bold"></span></div>
         </div>
         <hr>
         <span id="total" class="d-block ml-5 font-weight-bold"></span>
@@ -46,7 +45,6 @@ function appendCartItems(arr){
 
     quantityFunctionalities();
     
-
 }
 
 
@@ -62,14 +60,26 @@ function quantityFunctionalities(){
                 let input = e.target
                 let actualValue = input.value;
                 let dataquantity = input.dataset.indexNumber;
+                let htmlSub = document.getElementById('subTotal');
+                let htmlTot = document.getElementById('total');
+                let htmlSubToAppend = '';
+                let htmlTotalToAppend = '';
+
     //Funcionalidades:
                 cartList[dataquantity].count = +actualValue;
-})}
+                totallyTheSubTotal = (actualValue * cartList[dataquantity].unitCost);
+                total = totallyTheSubTotal
 
-const priceArr = Array.from(quantity).map(item => parseInt(item.value));
-console.log(priceArr);
+    //Mostrar en pantalla:
+                htmlSubToAppend += `Subtotal: `+totallyTheSubTotal+``;
+                htmlSub.innerHTML = htmlSubToAppend;
+                htmlTotalToAppend += `Total: `+total+``;
+                htmlTot.innerHTML = htmlTotalToAppend;
+
+                
+})}
 }
 
-let quantity  = document.querySelectorAll('input.cartero');
+/* let quantity  = document.querySelectorAll('input.cartero');
 const priceArr = Array.from(quantity).map(item => parseInt(item.value));
-console.log(priceArr);
+console.log(priceArr); */
