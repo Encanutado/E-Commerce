@@ -8,8 +8,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
-function redirect(){
-    window.location.href="editprofile.html"
+function deleteProfile(){
+    var respuesta = confirm('Esta seguro que desea eliminar su perfil?');
+    if (respuesta){
+    localStorage.removeItem('formData');
+    window.location.href='my-profile.html';
+    }
+    else{
+        alert('Usted ha decidido no eliminar su perfil.')
+    }
 }
 
 function appendEditProfile(){
