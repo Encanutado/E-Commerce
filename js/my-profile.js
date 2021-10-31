@@ -70,8 +70,11 @@ function saveProfile(e){
     console.log(usrData);
     e.preventDefault();
 
-
+    
     deleteProfileEdition();
+
+    window.location.href="my-profile.html"
+ 
 }
 
 function dispData(){
