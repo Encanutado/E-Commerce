@@ -18,7 +18,6 @@ function guardarLogin(nombre, pw){
 else {
         localStorage.setItem("nombre", nombre.trim());
         localStorage.setItem("pw", pw.trim());
-
     window.location.href = "index.html"
 }}
 

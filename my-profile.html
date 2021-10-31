@@ -31,6 +31,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link href="css/profile.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -42,34 +44,38 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main>
+    <div id="profile">
+          <h1>Mi Perfil:</h1>
+          <div id="output">
+            <table>
+              <tbody>
+                  <tr class="fadeIn first">
+                  <td>Primer Nombre:</td>
+                  <td id="output1"></td>
+                  </tr>
+                  <tr class="fadeIn second">
+                  <td>Apellidos:</td>
+                  <td id="output2"></td>
+                  </tr>
+                  <tr class="fadeIn second">
+                  <td>Tu Email:</td>
+                  <td id="output3"></td>
+                  </tr>
+                  <tr class="fadeIn third">
+                  <td>Tu telefono de contacto:</td>
+                  <td id="output4"></td>
+                  </tr>
+              </tbody>
+          </table>
+          </div>
+          <button id="registerButton" onclick="appendEditProfile()">Editar Perfil</button>
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    <div id="editProfile">
+
     </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+  </main>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
