@@ -72,7 +72,7 @@ body {
   
   
   
-  input[type=button], input[type=submit], input[type=reset]  {
+  input[type=button], input[type=submit], input[type=reset], button#registerButton  {
     background-color: #56baed;
     border: none;
     color: white;
@@ -480,3 +480,13 @@ body {
     width:60%;
   }
   
+table{
+    border: solid 1px #0000;
+    padding: 10px;
+}
+
+div#output{
+    width: 50%;
+    border: solid 1px #0000;
+    padding: 10px;
+}

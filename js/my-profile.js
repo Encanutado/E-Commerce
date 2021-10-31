@@ -75,6 +75,7 @@ function saveProfile(e){
 }
 
 function dispData(){
+    if(localStorage.getItem('formData')){
     let displayData = JSON.parse(localStorage.getItem('formData'));
     let output1 = document.getElementById('output1');
     let output2 = document.getElementById('output2');
@@ -87,6 +88,7 @@ function dispData(){
     output4.innerHTML= tel ;
     
     console.log(displayData)
+}    
 }
 
 dispData();

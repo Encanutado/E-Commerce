@@ -48,28 +48,28 @@
     <div id="profile">
           <h1>Mi Perfil:</h1>
           <div id="output">
-            <table>
+            <table class="table table-hover">
               <tbody>
                   <tr class="fadeIn first">
-                  <td>Primer Nombre:</td>
-                  <td id="output1"></td>
+                  <th scope="col">Primer Nombre:</th>
+                  <td id="output1" scope="col"></td>
                   </tr>
                   <tr class="fadeIn second">
-                  <td>Apellidos:</td>
-                  <td id="output2"></td>
+                  <th scope="col">Apellidos:</th>
+                  <td id="output2" scope="col"></td>
                   </tr>
                   <tr class="fadeIn second">
-                  <td>Tu Email:</td>
-                  <td id="output3"></td>
+                  <th scope="col">Tu Email:</th>
+                  <td id="output3" scope="col"></td>
                   </tr>
                   <tr class="fadeIn third">
-                  <td>Tu telefono de contacto:</td>
-                  <td id="output4"></td>
+                  <th scope="col">Tu telefono de contacto:</th>
+                  <td id="output4" scope="col"></td>
                   </tr>
               </tbody>
           </table>
           </div>
-          <button id="registerButton" onclick="appendEditProfile()">Editar Perfil</button>
+          <button id="registerButton" onclick="appendEditProfile()" class="fadeIn fourth">Editar Perfil</button>
     </div>
     <div id="editProfile">
 
