@@ -362,3 +362,12 @@ label.radio input:checked+span {
 .spec {
     font-size: 11px
 }
+
+img#productimg{
+  width: 100%;
+}
+
+div#productbutton{
+  position: relative;
+  right: 10%;
+}
