@@ -12,26 +12,23 @@ for(let i = 0; i < arr.length; i++){
         let producto = arr[i];
 
         productosAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + producto.imgSrc + `" alt="` + producto.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ producto.name +`</h4>
-                            <small class="text-muted">` + producto.soldCount + ` artículos</small>
-                        </div>
-                            <small class="text-muted">` + producto.cost + " " + producto.currency + ` </small>
-                        <p class="mb-1">` + producto.description + `</p>
-                        
-                    </div>
-                </div>
-            </a>
-            `
+        <div class="card" style="width: 18rem;">
+        <img src="`+producto.imgSrc+`" class="card-img-top" alt="Product photo">
+        <div class="card-body">
+          <h5 class="card-title">`+producto.name+`</h5>
+          <p class="card-text">` + producto.description + `</p>
+          <small class="text-muted">` + producto.soldCount + ` artículos vendidos</small>
+          <small class="text-muted">` + producto.cost + " " + producto.currency + ` </small>
+          <a href="/product-info.html" class="btn btn-primary">Ver productos.</a>
+        </div>
+      </div>
+
+        `
 }
     document.getElementById("produto").innerHTML = productosAppend;
 }
+
+
 
 function ordmayorPrecio(arrprod) {
     return arrprod.sort((a, b) => b.cost - a.cost)
