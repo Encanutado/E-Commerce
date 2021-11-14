@@ -162,10 +162,10 @@ function calcularPrecioFinal(){
         precioDeEnvio = (subTotal * 0.15)
     }
     else if (expressDelivery.checked == true){
-        precioDeEnvio = (subTotal * 0.7)
+        precioDeEnvio = (subTotal * 0.07)
     }
     else{
-        precioDeEnvio = (subTotal * 0.5)
+        precioDeEnvio = (subTotal * 0.05)
     }
     total = subTotal + precioDeEnvio;
 
