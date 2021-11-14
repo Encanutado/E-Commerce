@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 })
 
+
+let precioDeEnvioCalculado;
 let cartList;
 var subTotal = 0;
 
@@ -148,5 +150,26 @@ cvvValidation();
 
 });
 
+let premiumDelivery = document.getElementById("premium").checked;
+let expressDelivery = document.getElementById("express").checked;
+let standardDelivery = document.getElementById("standard").checked;
 
-function calcularPrecioFinal(){}
+
+
+function calcularPrecioFinal(){
+    let precioDeEnvio = 0;
+    if(premiumDelivery = true){
+        precioDeEnvio = (subTotal * 0.15)
+    }
+    else if (expressDelivery = true){
+        precioDeEnvio = (subTotal * 0.7)
+    }
+    else{
+        precioDeEnvio = (subTotal * 0.5)
+    }
+    total = subTotal + precioDeEnvio;
+
+    let appendSubtotal = document.getElementById("subtotalFinal");
+
+    appendSubtotal.innerHTML = `Subtotal: `+subTotal+` <br> Total: `+total+``
+}
