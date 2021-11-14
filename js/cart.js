@@ -98,6 +98,9 @@ let numero = document.getElementById('creditCardNumber');
 let fecha1 = document.getElementById('creditCardDate1');
 let fecha2 = document.getElementById('creditCardDate2');
 let cvv = document.getElementById('ccvCard');
+let accountName = document.getElementById('accountName');
+let accountNumber = document.getElementById('accountNumber');
+let accountEmail = document.getElementById('accountEmail');
 
 mensaje = "Debe ingresar su nombre";
 
@@ -130,9 +133,13 @@ function eventTarget(){
 
 
 main.addEventListener('keyup', function(e){
+creditCardValidation(accountName);
+creditCardValidation(accountNumber);
+creditCardValidation(accountEmail);
 creditCardValidation(nombre);
 creditCardValidation(numero);
 creditCardValidation(fecha1);
 creditCardValidation(fecha2);
 cvvValidation();
+
 });
