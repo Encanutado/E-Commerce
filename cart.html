@@ -13,16 +13,20 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
   <style>
+    .tabcontent {
+      animation: fadeEffect 1s;
+    }
 
-.tabcontent {
-  animation: fadeEffect 1s; 
-}
 
+    @keyframes fadeEffect {
+      from {
+        opacity: 0;
+      }
 
-@keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
+      to {
+        opacity: 1;
+      }
+    }
 
     body {
       background: #f5f5f5
@@ -78,7 +82,7 @@
     </div>
   </nav>
 
-<!--Carrito-->
+  <!--Carrito-->
 
   <main>
     <div class="container mt-5 p-3 rounded cart">
@@ -99,160 +103,176 @@
           </div>
         </div>
 
-<button id='confirmPayment' type="button" class="subscribe btn btn-primary btn-block shadow-sm" data-toggle="modal" data-target="#modalPago"> Continuar a Información de Pago! </button>
+        <!--Botones de seleccionar opcion de pago-->
 
-        <!--Modal:-->
+        <div class="col-md-8">
+          <h6>Para continuar, selecciona una opción de pago:</h6>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Tarjeta de Crédito.</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#accountModal">Cuenta Bancaria.</button>
+        </div>
 
-        <div class="modal" id="modalPago" tabindex="-1" role="dialog">
+        <!--Modal con Tarjeta de credito -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Tu información de pago:</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Pago con Tarjeta de crédito:</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
+                <div>
+                  <div class="row">
+                    <div class="card ">
+                      <div class="card-header">
+                        <span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio"
+                            name="card" value="payment" checked> <span><img width="30"
+                              src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+                        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
+                              src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
+                        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
+                              src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
+                        <div class="tab-content">
+                          <div id="credit-card" class="tab-pane fade show active pt-3">
+                            <form role="form" onsubmit="event.preventDefault()">
+                              <div class="form-group"> <label for="username">
+                                  <h6>Titular de la tarjeta:</h6>
+                                </label> <input type="text" name="username"
+                                  placeholder="Nombre del titular de la tarjeta." required class="form-control ">
+                              </div>
+                              <div class="form-group"> <label for="cardNumber">
+                                  <h6>Numero de tarjeta:</h6>
+                                </label>
+                                <div class="input-group"> <input type="text" name="cardNumber"
+                                    placeholder="0000 0000 0000 0000" class="form-control " required>
+                                  <div class="input-group-append"> <span class="input-group-text text-muted"> <i
+                                        class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i
+                                        class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-sm-8">
+                                  <div class="form-group"> <label><span class="hidden-xs">
+                                        <h6>Fecha de expiración:</h6>
+                                      </span></label>
+                                    <div class="input-group"> <input type="number" placeholder="MM" name=""
+                                        class="form-control" required> <input type="number" placeholder="YY" name=""
+                                        class="form-control" required>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-4">
+                                  <div class="form-group mb-4"> <label data-toggle="tooltip"
+                                      title="Código de tres dígitos en la parte posterior de la tarjeta.">
+                                      <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                    </label> <input type="text" required class="form-control"> </div>
+                                </div>
 
-<!-- Tab links -->
-<div class="tab">
-  <h6>Por favor, selecciona un metodo de pago:</h6>
-  <button class="tablinks btn btn-primary" onclick="openCity(event, 'credito')">Tarjeta de Crédito.</button>
-  <button class="tablinks btn btn-success" onclick="openCity(event, 'cuenta')">Cuenta Bancaria.</button>
-</div>
+                              </div>
 
-<!--Información de pago-->
-
-<!--Tarjeta-->
-<div id="credito" class="tabcontent">
-        <div>
-          <div class="row">
-            <div class="card ">
-              <div class="card-header">
-                <span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio"
-                    name="card" value="payment" checked> <span><img width="30"
-                      src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
-                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
-                      src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
-                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
-                      src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
-                <div class="tab-content">
-                  <div id="credit-card" class="tab-pane fade show active pt-3">
-                    <form role="form" onsubmit="event.preventDefault()">
-                      <div class="form-group"> <label for="username">
-                          <h6>Titular de la tarjeta:</h6>
-                        </label> <input type="text" name="username" placeholder="Nombre del titular de la tarjeta."
-                          required class="form-control "> </div>
-                      <div class="form-group"> <label for="cardNumber">
-                          <h6>Numero de tarjeta:</h6>
-                        </label>
-                        <div class="input-group"> <input type="text" name="cardNumber" placeholder="0000 0000 0000 0000"
-                            class="form-control " required>
-                          <div class="input-group-append"> <span class="input-group-text text-muted"> <i
-                                class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i
-                                class="fab fa-cc-amex mx-1"></i> </span> </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-8">
-                          <div class="form-group"> <label><span class="hidden-xs">
-                                <h6>Fecha de expiración:</h6>
-                              </span></label>
-                            <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control"
-                                required> <input type="number" placeholder="YY" name="" class="form-control" required>
-                            </div>
+                            </form>
                           </div>
                         </div>
-                        <div class="col-sm-4">
-                          <div class="form-group mb-4"> <label data-toggle="tooltip"
-                              title="Código de tres dígitos en la parte posterior de la tarjeta.">
-                              <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                            </label> <input type="text" required class="form-control"> </div>
-                        </div>
-                        
                       </div>
-                    
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-</div>
-
-<!--Cuenta bancaria.-->
-
-<div id="cuenta" class="tabcontent">
-  <div class="form-group"> <label for="username">
-    <h6>Titular de la cuenta:</h6>
-      </label> <input type="text" name="username" placeholder="Nombre del titular de la cuenta."required class="form-control "> 
-  </div>
-
-  <div class="form-group"> <label for="account">
-    <h6>Número de cuenta:</h6>
-      </label> <input type="text" name="username" placeholder="Número de la cuenta."required class="form-control "> 
-  </div>
-
-  <div class="form-group"> <label for="account">
-    <h6>Email:</h6>
-      </label> <input type="email" name="username" placeholder="Correo electrónico."required class="form-control "> 
-    <p>(El email es requerido para el envío de la boleta.)</p>
-  </div>
-</div>
-
-<!--Fin info de pago.-->
-              </div>
-<div id='envio'>
-                          <p>Selecciona tu tipo de envío:</p>
-
-                          <div>
-                            <input type="radio" id="premium" name="envío" checked>
-                            <label for="premium">Premium (2-5 días)</label>
-                          </div>
-
-                          <div>
-                            <input type="radio" id="express" name="envío">
-                            <label for="express">Express (5-8 días)</label>
-                          </div>
-
-                          <div>
-                            <input type="radio" id="standard" name="envío">
-                            <label for="standard">Standard (12-15 días)</label>
-                          </div>
-
-                        </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCosto">Confirmar Pago!</button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#deliveryModal">Continuar
+                  a pagar!</button>
               </div>
             </div>
           </div>
         </div>
 
-<!--Modal de Despliegue de pago:-->
+        <!--Modal cuenta bancaria -->
 
-<div class="modal" tabindex="-1" role="dialog" id="modalCosto">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Datos de cuenta bancaria:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="cuenta" class="tabcontent">
+                  <div class="form-group"> <label for="username">
+                      <h6>Titular de la cuenta:</h6>
+                    </label> <input type="text" name="username" placeholder="Nombre del titular de la cuenta." required
+                      class="form-control ">
+                  </div>
 
-        
+                  <div class="form-group"> <label for="account">
+                      <h6>Número de cuenta:</h6>
+                    </label> <input type="text" name="username" placeholder="Número de la cuenta." required
+                      class="form-control ">
+                  </div>
+
+                  <div class="form-group"> <label for="account">
+                      <h6>Email:</h6>
+                    </label> <input type="email" name="username" placeholder="Correo electrónico." required
+                      class="form-control ">
+                    <p>(El email es requerido para el envío de la boleta.)</p>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#deliveryModal">Continuar
+                  a pagar!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Modal con seleccion de envio y precio final-->
+
+        <div class="modal fade" id="deliveryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Finalizar pago:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id='envio'>
+                  <p>Selecciona tu tipo de envío:</p>
+
+                  <div>
+                    <input type="radio" id="premium" name="envío" checked>
+                    <label for="premium">Premium (2-5 días)</label>
+                  </div>
+
+                  <div>
+                    <input type="radio" id="express" name="envío">
+                    <label for="express">Express (5-8 días)</label>
+                  </div>
+
+                  <div>
+                    <input type="radio" id="standard" name="envío">
+                    <label for="standard">Standard (12-15 días)</label>
+                  </div>
+
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success">Pagar!</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
   </main>
   <div id="spinner-wrapper">
     <div class="lds-ring">
