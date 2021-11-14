@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 let cartList;
 
 
+
 const cartData =  async() => {
     const cartInfo = await getJSONData(CART_Desafiate);
     const cartInfoData = cartInfo.data;
@@ -58,6 +59,8 @@ function quantityFunctionalities(){
     let total = 0;
     let subTotal1 = 0;
     let subTotal2 = 0;
+    let subTotal = 0;
+    let delivery = 0;
 
             for (cant of quantity){
                 cant.addEventListener("input",function(e){
@@ -66,13 +69,15 @@ function quantityFunctionalities(){
                 let actualValue = input.value;
                 let dataquantity = input.dataset.indexNumber;
                 let htmlSub = document.getElementById(`subTotal`+dataquantity+``);
+                let costSub = document.getElementById(`costosubtotal`);
+                let deliveryCost = document.getElementById(`costoenvio`);
                 let htmlTot = document.getElementById('total');
                 let htmlSubToAppend = '';
-                /* let premiumDelivery = (subTotal * 0.15);
+                let premiumDelivery = (subTotal * 0.15);
                 let expressDelivery = (subTotal * 0.7);
                 let standardDelivery = (subTotal * 0.5); 
-                let radioPremium = document.getElementById('premium');
-                let radioExpress = document.getElementById('express'); */
+                let radioPremium = document.getElementById('premium').value;
+                let radioExpress = document.getElementById('express');
                 
     //Funcionalidades:
                 cartList[dataquantity].count = +actualValue;
@@ -86,13 +91,14 @@ function quantityFunctionalities(){
                 }
 
                 total = subTotal2+ subTotal1;
+                subTotal = subTotal1 + subTotal2;
 
                     
     //Mostrar en pantalla:
                 
-                htmlTot.innerHTML = `Total: UYU$ `+total+``
+                htmlTot.innerHTML = `SubTotal: UYU$ `+subTotal+` <br> Costo de envio: `+delivery+`
+                                    <br> Total: UYU$ `+total+``
                 htmlSub.innerHTML = htmlSubToAppend;
-
                 
 })}
 }
@@ -113,3 +119,4 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 } 
+
