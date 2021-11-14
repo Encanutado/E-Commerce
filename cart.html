@@ -13,6 +13,17 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
   <style>
+
+.tabcontent {
+  animation: fadeEffect 1s; 
+}
+
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
     body {
       background: #f5f5f5
     }
@@ -101,8 +112,17 @@
               </div>
               <div class="modal-body">
 
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks btn btn-primary" onclick="openCity(event, 'credito')">Tarjeta de Crédito.</button>
+  <button class="tablinks btn btn-success" onclick="openCity(event, 'cuenta')">Cuenta Bancaria.</button>
+</div>
+
 <!--Información de pago-->
-               <div class="col-md-4">
+
+<!--Tarjeta-->
+<div id="credito" class="tabcontent">
+        <div>
           <div class="row">
             <div class="card ">
               <div class="card-header">
@@ -174,12 +194,33 @@
             </div>
           </div>
         </div>
+</div>
+
+<!--Cuenta bancaria.-->
+
+<div id="cuenta" class="tabcontent">
+  <div class="form-group"> <label for="username">
+    <h6>Titular de la cuenta:</h6>
+      </label> <input type="text" name="username" placeholder="Nombre del titular de la cuenta."required class="form-control "> 
+  </div>
+
+  <div class="form-group"> <label for="account">
+    <h6>Número de cuenta:</h6>
+      </label> <input type="text" name="username" placeholder="Número de la cuenta."required class="form-control "> 
+  </div>
+
+  <div class="form-group"> <label for="account">
+    <h6>Email:</h6>
+      </label> <input type="email" name="username" placeholder="Correo electrónico."required class="form-control "> 
+    <p>(El email es requerido para el envío de la boleta.)</p>
+  </div>
+</div>
 
 <!--Fin info de pago.-->
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Confirmar Pago!</button>
               </div>
             </div>
           </div>
