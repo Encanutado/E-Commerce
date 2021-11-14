@@ -1,6 +1,7 @@
-//Pedido de informacion al JSON conteniendo los elementos del carrito precargados.
 document.addEventListener("DOMContentLoaded", function(e){
     cartData();
+    
+
 })
 
 let cartList;
@@ -98,23 +99,25 @@ let fecha1 = document.getElementById('creditCardDate1');
 let fecha2 = document.getElementById('creditCardDate2');
 let cvv = document.getElementById('ccvCard');
 
+mensaje = "Debe ingresar su nombre";
 
+function creditCardValidation(item){
+    if (item.value !== ""){
+    item.innerHTML = item.style.backgroundColor = "green";
+}
+else if (item.value == ""){
+    item.innerHTML = item.style.backgroundColor = "red";
 
-function creditCardValidation(){
-    window.href = 'cart.html';
-    if (nombre.value !== ""){
-    nombre.innerHTML = nombre.style.backgroundColor = "green"; 
-}
-else if (nombre.value == ""){
-    nombre.innerHTML = nombre.style.backgroundColor = "red"; 
-}
-
-if (numero.value == ""){
-    numero.innerHTML = numero.style.backgroundColor = "red";
-}
-else {
-numero.innerHTML = numero.style.backgroundColor = "green";
 }
 }
 
-nombre.addEventListener('keyup', creditCardValidation)
+
+function eventTarget(){
+    creditCardValidation(nombre);
+}
+
+
+
+nombre.addEventListener('keyup', function(e){
+creditCardValidation(nombre);
+});
