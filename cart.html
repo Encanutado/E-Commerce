@@ -115,7 +115,7 @@
 <!-- Tab links -->
 <div class="tab">
   <button class="tablinks btn btn-primary" onclick="openCity(event, 'credito')">Tarjeta de Crédito.</button>
-  <button class="tablinks btn btn-success" onclick="openCity(event, 'cuenta')">Cuenta Bancaria.</button>
+  <button id='account' class="tablinks btn btn-success" onclick="openCity(event, 'cuenta')">Cuenta Bancaria.</button>
 </div>
 
 <!--Información de pago-->
@@ -138,12 +138,12 @@
                     <form role="form" onsubmit="event.preventDefault()">
                       <div class="form-group"> <label for="username">
                           <h6>Titular de la tarjeta:</h6>
-                        </label> <input type="text" name="username" placeholder="Nombre del titular de la tarjeta."
+                        </label> <input id="cardName" type="text" name="username" placeholder="Nombre del titular de la tarjeta."
                           required class="form-control "> </div>
                       <div class="form-group"> <label for="cardNumber">
                           <h6>Numero de tarjeta:</h6>
                         </label>
-                        <div class="input-group"> <input type="text" name="cardNumber" placeholder="0000 0000 0000 0000"
+                        <div class="input-group"> <input id="cardNumber" type="text" name="cardNumber" placeholder="0000 0000 0000 0000"
                             class="form-control " required>
                           <div class="input-group-append"> <span class="input-group-text text-muted"> <i
                                 class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i
@@ -155,7 +155,7 @@
                           <div class="form-group"> <label><span class="hidden-xs">
                                 <h6>Fecha de expiración:</h6>
                               </span></label>
-                            <div class="input-group"> <input type="number" placeholder="MM" name="" class="form-control"
+                            <div class="input-group"> <input id='cardDate'type="number" placeholder="MM" name="" class="form-control"
                                 required> <input type="number" placeholder="YY" name="" class="form-control" required>
                             </div>
                           </div>
@@ -166,25 +166,6 @@
                               <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
                             </label> <input type="text" required class="form-control"> </div>
                         </div>
-                        <div id='envio'>
-                          <p>Selecciona tu tipo de envío:</p>
-
-                          <div>
-                            <input type="radio" id="premium" name="envío" checked>
-                            <label for="premium">Premium (2-5 días)</label>
-                          </div>
-
-                          <div>
-                            <input type="radio" id="express" name="envío">
-                            <label for="express">Express (5-8 días)</label>
-                          </div>
-
-                          <div>
-                            <input type="radio" id="standard" name="envío">
-                            <label for="standard">Standard (12-15 días)</label>
-                          </div>
-
-                        </div>
                       </div>
                     
                     </form>
@@ -193,31 +174,55 @@
               </div>
             </div>
           </div>
-        </div>
 </div>
+
+
+
 
 <!--Cuenta bancaria.-->
 
-<div id="cuenta" class="tabcontent">
+<div id="cuenta">
+<br>
   <div class="form-group"> <label for="username">
     <h6>Titular de la cuenta:</h6>
-      </label> <input type="text" name="username" placeholder="Nombre del titular de la cuenta."required class="form-control "> 
+      </label> <input id="accountName" type="text" name="username" placeholder="Nombre del titular de la cuenta."required class="form-control "> 
   </div>
 
   <div class="form-group"> <label for="account">
     <h6>Número de cuenta:</h6>
-      </label> <input type="text" name="username" placeholder="Número de la cuenta."required class="form-control "> 
+      </label> <input id="accountNumber" type="text" name="numerodecuenta" placeholder="Número de la cuenta."required class="form-control "> 
   </div>
 
   <div class="form-group"> <label for="account">
     <h6>Email:</h6>
-      </label> <input type="email" name="username" placeholder="Correo electrónico."required class="form-control "> 
+      </label> <input id="accountEmail" type="email" name="username" placeholder="Correo electrónico."required class="form-control "> 
     <p>(El email es requerido para el envío de la boleta.)</p>
   </div>
 </div>
+</div>
+
 
 <!--Fin info de pago.-->
               </div>
+              <div id='envio' class="col">
+                          <p>Selecciona tu tipo de envío:</p>
+
+                          <div>
+                            <input type="radio" id="premiumCard" name="envío" checked>
+                            <label for="premium">Premium (2-5 días)</label>
+                          </div>
+
+                          <div>
+                            <input type="radio" id="expressCard" name="envío">
+                            <label for="express">Express (5-8 días)</label>
+                          </div>
+
+                          <div>
+                            <input type="radio" id="standardCard" name="envío">
+                            <label for="standard">Standard (12-15 días)</label>
+                          </div>
+
+                        </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary">Confirmar Pago!</button>
@@ -243,6 +248,8 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  
+
 </body>
 
 </html>

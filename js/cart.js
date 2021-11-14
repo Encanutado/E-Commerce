@@ -1,8 +1,34 @@
 //Pedido de informacion al JSON conteniendo los elementos del carrito precargados.
 document.addEventListener("DOMContentLoaded", function(e){
     cartData();
+    formData();
 
 })
+
+
+//Inicializo las variables que voy a necesitar:
+
+let cuenta = document.getElementById('cuenta');
+
+//regex para la validación:
+let regexCard = '^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$';
+let regexName = '';
+
+//Form de Pago con Tarjeta:
+let cardName = document.getElementById('cardName').value;
+let cardNumber = document.getElementById('cardNumber').value;
+let cardDate = document.getElementById('cardDate').value;
+
+let cardPremium = document.getElementById('premiumCard').value;
+let cardExpress = document.getElementById('expressCard').value;
+let cardStandard = document.getElementById('standardCard').value;
+
+//Form de pago con cuenta Bancaria:
+
+let accountName = document.getElementById('accountName').value;
+let accountNumber = document.getElementById('accountNumber').value;
+let accountEmail = document.getElementById('accountEmail').value;
+
 
 let cartList;
 
@@ -113,4 +139,3 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 } 
-
