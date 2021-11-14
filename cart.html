@@ -98,7 +98,6 @@
             <div id="cartItems">
             </div>
             <p id="costosubtotal"></p>
-            <p id="costoenvio"></p>
             <p id="total" class="d-block ml-5 font-weight-bold"></p>
           </div>
         </div>
@@ -249,6 +248,8 @@
               </div>
               <div class="modal-body">
                 <div id='envio'>
+                <div class="row">
+                  <div class="col-lg-">
                   <p>Selecciona tu tipo de envío:</p>
 
                   <div>
@@ -265,8 +266,13 @@
                     <input type="radio" id="standard" name="envío">
                     <label for="standard">Standard (12-15 días)</label>
                   </div>
+                  </div>
 
+                  <div class="col-sm-" id="preSubTotalFinal">
+                    <p>Subtotal = <div id="subtotalFinal"></div></p>
+                  </div>
                 </div>
+              </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

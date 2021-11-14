@@ -260,6 +260,10 @@ a.custom-card:hover {
 
 /* Estilos para el carrito. */
 
+#preSubTotalFinal, #subtotalFinal{
+  margin-left: 20%;
+}
+
 .payment-info {
     background: lightgreen;
     padding: 10px;

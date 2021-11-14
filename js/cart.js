@@ -90,8 +90,10 @@ function quantityFunctionalities(){
                 htmlTot.innerHTML = `SubTotal: UYU$ `+subTotal+` <br> Costo de envio: `+delivery+`
                                     <br> Total: UYU$ `+total+``
                 htmlSub.innerHTML = htmlSubToAppend;
+                console.log(subTotal);
 })}
 }
+
 let main = document.getElementById('main');
 let nombre = document.getElementById('creditCardName');
 let numero = document.getElementById('creditCardNumber');
@@ -120,9 +122,11 @@ function cvvValidation(){
 if (cvv.value == ""){
     cvv.innerHTML = cvv.style.backgroundColor = "red";
 }
-else if(((cvv.value).length) != 3){
+else if(((cvv.value).length) < 3 ){
     cvv.innerHTML = cvv.style.backgroundColor = "red";
 }
+
+else if (((cvv.value).length) > 4 )
 console.log((cvv.value).length)
 }
 
@@ -143,3 +147,6 @@ creditCardValidation(fecha2);
 cvvValidation();
 
 });
+
+
+function calcularPrecioFinal(){}
