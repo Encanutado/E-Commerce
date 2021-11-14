@@ -92,7 +92,7 @@ function quantityFunctionalities(){
                 htmlSub.innerHTML = htmlSubToAppend;
 })}
 }
-
+let main = document.getElementById('main');
 let nombre = document.getElementById('creditCardName');
 let numero = document.getElementById('creditCardNumber');
 let fecha1 = document.getElementById('creditCardDate1');
@@ -107,10 +107,21 @@ function creditCardValidation(item){
 }
 else if (item.value == ""){
     item.innerHTML = item.style.backgroundColor = "red";
-
 }
 }
 
+function cvvValidation(){
+ if (cvv.value !== ""){
+    cvv.innerHTML = cvv.style.backgroundColor = "green";
+}
+if (cvv.value == ""){
+    cvv.innerHTML = cvv.style.backgroundColor = "red";
+}
+else if(((cvv.value).length) != 3){
+    cvv.innerHTML = cvv.style.backgroundColor = "red";
+}
+console.log((cvv.value).length)
+}
 
 function eventTarget(){
     creditCardValidation(nombre);
@@ -118,6 +129,10 @@ function eventTarget(){
 
 
 
-nombre.addEventListener('keyup', function(e){
+main.addEventListener('keyup', function(e){
 creditCardValidation(nombre);
+creditCardValidation(numero);
+creditCardValidation(fecha1);
+creditCardValidation(fecha2);
+cvvValidation();
 });
