@@ -89,7 +89,7 @@ function quantityFunctionalities(){
                     
     //Mostrar en pantalla:
                 
-                htmlTot.innerHTML = `SubTotal: UYU$ `+subTotal+` <br> Costo de envio: `+delivery+`
+                htmlTot.innerHTML = `SubTotal: UYU$ `+subTotal+`
                                     <br> Total: UYU$ `+total+``
                 htmlSub.innerHTML = htmlSubToAppend;
                 console.log(subTotal);
@@ -150,18 +150,18 @@ cvvValidation();
 
 });
 
-let premiumDelivery = document.getElementById("premium").checked;
-let expressDelivery = document.getElementById("express").checked;
-let standardDelivery = document.getElementById("standard").checked;
+let premiumDelivery = document.getElementById("premium");
+let expressDelivery = document.getElementById("express");
+let standardDelivery = document.getElementById("standard");
 
 
 
 function calcularPrecioFinal(){
     let precioDeEnvio = 0;
-    if(premiumDelivery = true){
+    if(premiumDelivery.checked == true){
         precioDeEnvio = (subTotal * 0.15)
     }
-    else if (expressDelivery = true){
+    else if (expressDelivery.checked == true){
         precioDeEnvio = (subTotal * 0.7)
     }
     else{
@@ -173,3 +173,7 @@ function calcularPrecioFinal(){
 
     appendSubtotal.innerHTML = `Subtotal: `+subTotal+` <br> Total: `+total+``
 }
+
+premiumDelivery.addEventListener("click", calcularPrecioFinal);
+expressDelivery.addEventListener("click", calcularPrecioFinal);
+standardDelivery.addEventListener("click", calcularPrecioFinal);
