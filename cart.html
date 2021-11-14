@@ -139,13 +139,16 @@
                             <form role="form" onsubmit="event.preventDefault()">
                               <div class="form-group"> <label for="username">
                                   <h6>Titular de la tarjeta:</h6>
-                                </label> <input type="text" name="username"
+                                </label> <input id='creditCardName' type="text" name="username"
                                   placeholder="Nombre del titular de la tarjeta." required class="form-control ">
+                                <div class="invalid-feedback">
+                                  Please choose a username.
+                                </div>
                               </div>
                               <div class="form-group"> <label for="cardNumber">
                                   <h6>Numero de tarjeta:</h6>
                                 </label>
-                                <div class="input-group"> <input type="text" name="cardNumber"
+                                <div class="input-group"> <input id='creditCardNumber' type="text" name="cardNumber"
                                     placeholder="0000 0000 0000 0000" class="form-control " required>
                                   <div class="input-group-append"> <span class="input-group-text text-muted"> <i
                                         class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i
@@ -157,9 +160,9 @@
                                   <div class="form-group"> <label><span class="hidden-xs">
                                         <h6>Fecha de expiración:</h6>
                                       </span></label>
-                                    <div class="input-group"> <input type="number" placeholder="MM" name=""
-                                        class="form-control" required> <input type="number" placeholder="YY" name=""
-                                        class="form-control" required>
+                                    <div class="input-group"> <input id='creditCardDate1' type="number" placeholder="MM"
+                                        name="" class="form-control" required> <input id='creditCardDate2' type="number"
+                                        placeholder="YY" name="" class="form-control" required>
                                     </div>
                                   </div>
                                 </div>
@@ -167,7 +170,7 @@
                                   <div class="form-group mb-4"> <label data-toggle="tooltip"
                                       title="Código de tres dígitos en la parte posterior de la tarjeta.">
                                       <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
-                                    </label> <input type="text" required class="form-control"> </div>
+                                    </label> <input id="ccvCard" type="text" required class="form-control"> </div>
                                 </div>
 
                               </div>

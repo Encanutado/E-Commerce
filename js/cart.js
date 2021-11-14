@@ -1,11 +1,10 @@
 //Pedido de informacion al JSON conteniendo los elementos del carrito precargados.
 document.addEventListener("DOMContentLoaded", function(e){
     cartData();
-
 })
 
 let cartList;
-
+var subTotal = 0;
 
 
 const cartData =  async() => {
@@ -35,7 +34,7 @@ function appendCartItems(arr){
                 <div class="ml-2"><span class="font-weight-bold d-block">`+cartItem.name+`</span></div>
             </div>
                 <div class="d-flex flex-row align-items-center"></div><label for="tentacles">Cantidad:</label>
-            <input class="cartero" id=`+i+` data-index-number="`+i+`" type="number" placeholder="`+cartItem.count+`"
+            <input class="cartero" id=`+i+` data-index-number="`+i+`" type="number" placeholder=""
             min="0"><span class="d-block ml-5 font-weight-bold">`+cartItem.unitCost+`</span><span id="subTotal`+i+`" class="d-block ml-5 font-weight-bold"></span></div>
         </div>
         <hr>
@@ -44,9 +43,7 @@ function appendCartItems(arr){
 
         cartItems.innerHTML = htmlContentToAppend;
     }
-
     quantityFunctionalities();
-    
 }
 
 
@@ -59,25 +56,18 @@ function quantityFunctionalities(){
     let total = 0;
     let subTotal1 = 0;
     let subTotal2 = 0;
-    let subTotal = 0;
     let delivery = 0;
-
+    
             for (cant of quantity){
-                cant.addEventListener("input",function(e){
+                cant.addEventListener("input", function(e){
     //Inicializo las variables que voy a necesitar:
                 let input = e.target
                 let actualValue = input.value;
                 let dataquantity = input.dataset.indexNumber;
                 let htmlSub = document.getElementById(`subTotal`+dataquantity+``);
-                let costSub = document.getElementById(`costosubtotal`);
-                let deliveryCost = document.getElementById(`costoenvio`);
                 let htmlTot = document.getElementById('total');
                 let htmlSubToAppend = '';
-                let premiumDelivery = (subTotal * 0.15);
-                let expressDelivery = (subTotal * 0.7);
-                let standardDelivery = (subTotal * 0.5); 
-                let radioPremium = document.getElementById('premium').value;
-                let radioExpress = document.getElementById('express');
+                
                 
     //Funcionalidades:
                 cartList[dataquantity].count = +actualValue;
@@ -91,7 +81,7 @@ function quantityFunctionalities(){
                 }
 
                 total = subTotal2+ subTotal1;
-                subTotal = subTotal1 + subTotal2;
+                subTotal = subTotal2 + subTotal1;
 
                     
     //Mostrar en pantalla:
@@ -99,9 +89,32 @@ function quantityFunctionalities(){
                 htmlTot.innerHTML = `SubTotal: UYU$ `+subTotal+` <br> Costo de envio: `+delivery+`
                                     <br> Total: UYU$ `+total+``
                 htmlSub.innerHTML = htmlSubToAppend;
-                
 })}
 }
 
+let nombre = document.getElementById('creditCardName');
+let numero = document.getElementById('creditCardNumber');
+let fecha1 = document.getElementById('creditCardDate1');
+let fecha2 = document.getElementById('creditCardDate2');
+let cvv = document.getElementById('ccvCard');
 
 
+
+function creditCardValidation(){
+    window.href = 'cart.html';
+    if (nombre.value !== ""){
+    nombre.innerHTML = nombre.style.backgroundColor = "green"; 
+}
+else if (nombre.value == ""){
+    nombre.innerHTML = nombre.style.backgroundColor = "red"; 
+}
+
+if (numero.value == ""){
+    numero.innerHTML = numero.style.backgroundColor = "red";
+}
+else {
+numero.innerHTML = numero.style.backgroundColor = "green";
+}
+}
+
+nombre.addEventListener('keyup', creditCardValidation)

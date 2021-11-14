@@ -270,6 +270,9 @@ a.custom-card:hover {
 
 }
 
+.validated {
+background-color:green;
+}
 
 .product-details {
     padding: 10px;
