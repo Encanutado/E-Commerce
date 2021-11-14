@@ -114,6 +114,7 @@
 
 <!-- Tab links -->
 <div class="tab">
+  <h6>Por favor, selecciona un metodo de pago:</h6>
   <button class="tablinks btn btn-primary" onclick="openCity(event, 'credito')">Tarjeta de Crédito.</button>
   <button class="tablinks btn btn-success" onclick="openCity(event, 'cuenta')">Cuenta Bancaria.</button>
 </div>
@@ -166,25 +167,7 @@
                               <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
                             </label> <input type="text" required class="form-control"> </div>
                         </div>
-                        <div id='envio'>
-                          <p>Selecciona tu tipo de envío:</p>
-
-                          <div>
-                            <input type="radio" id="premium" name="envío" checked>
-                            <label for="premium">Premium (2-5 días)</label>
-                          </div>
-
-                          <div>
-                            <input type="radio" id="express" name="envío">
-                            <label for="express">Express (5-8 días)</label>
-                          </div>
-
-                          <div>
-                            <input type="radio" id="standard" name="envío">
-                            <label for="standard">Standard (12-15 días)</label>
-                          </div>
-
-                        </div>
+                        
                       </div>
                     
                     </form>
@@ -218,6 +201,25 @@
 
 <!--Fin info de pago.-->
               </div>
+<div id='envio'>
+                          <p>Selecciona tu tipo de envío:</p>
+
+                          <div>
+                            <input type="radio" id="premium" name="envío" checked>
+                            <label for="premium">Premium (2-5 días)</label>
+                          </div>
+
+                          <div>
+                            <input type="radio" id="express" name="envío">
+                            <label for="express">Express (5-8 días)</label>
+                          </div>
+
+                          <div>
+                            <input type="radio" id="standard" name="envío">
+                            <label for="standard">Standard (12-15 días)</label>
+                          </div>
+
+                        </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary">Confirmar Pago!</button>
