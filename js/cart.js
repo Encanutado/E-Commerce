@@ -117,6 +117,43 @@ else if (item.value == ""){
 }
 }
 
+function keepGoing(){
+if (accountName.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (accountNumber.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (accountEmail.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (nombre.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (numero.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (fecha1.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (fecha2.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (cvv.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+
+}
+
+
 function cvvValidation(){
  if (cvv.value !== ""){
     cvv.innerHTML = cvv.style.backgroundColor = "green";
@@ -147,8 +184,17 @@ creditCardValidation(numero);
 creditCardValidation(fecha1);
 creditCardValidation(fecha2);
 cvvValidation();
-
 });
+
+let continueBtn = document.getElementById("continuar");
+let paymentBtn = document.getElementById("pagar");
+
+continueBtn.addEventListener('click', keepGoing)
+
+paymentBtn.addEventListener('click', function(e){
+alert('Compra Realizada con Exito.')
+window.location.href= "profile.html"
+})
 
 let premiumDelivery = document.getElementById("premium");
 let expressDelivery = document.getElementById("express");
