@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(e){
     cartData();
-    
 
 })
 
@@ -131,6 +130,32 @@ else if (accountEmail.value == ""){
     window.location.href="cart.html"
 }
 }
+
+function cardKeepGoing(){
+if (nombre.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (numero.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (fecha2.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+}
+else if (fecha1.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+else if (cvv.value == ""){
+    alert("Debe Ingresar Sus Datos.")
+    window.location.href="cart.html"
+}
+}
+
+let cardSeguir = document.getElementById('cardKeepGoing');
+
+cardSeguir.addEventListener('click', cardKeepGoing)
 
 
 function cvvValidation(){
