@@ -130,27 +130,6 @@ else if (accountEmail.value == ""){
     alert("Debe Ingresar Sus Datos.")
     window.location.href="cart.html"
 }
-else if (nombre.value == ""){
-    alert("Debe Ingresar Sus Datos.")
-    window.location.href="cart.html"
-}
-else if (numero.value == ""){
-    alert("Debe Ingresar Sus Datos.")
-    window.location.href="cart.html"
-}
-else if (fecha1.value == ""){
-    alert("Debe Ingresar Sus Datos.")
-    window.location.href="cart.html"
-}
-else if (fecha2.value == ""){
-    alert("Debe Ingresar Sus Datos.")
-    window.location.href="cart.html"
-}
-else if (cvv.value == ""){
-    alert("Debe Ingresar Sus Datos.")
-    window.location.href="cart.html"
-}
-
 }
 
 
@@ -192,8 +171,21 @@ let paymentBtn = document.getElementById("pagar");
 continueBtn.addEventListener('click', keepGoing)
 
 paymentBtn.addEventListener('click', function(e){
+if (premiumDelivery.checked = true){
 alert('Compra Realizada con Exito.')
-window.location.href= "profile.html"
+window.location.href= "my-profile.html"
+}
+if (expressDelivery.checked = true){
+alert('Compra Realizada con Exito.')
+window.location.href= "my-profile.html"
+}
+if (standardDelivery.checked = true){
+alert('Compra Realizada con Exito.')
+window.location.href= "my-profile.html"
+}
+else{
+alert("Por Favor seleccione un método de envío.")
+}
 })
 
 let premiumDelivery = document.getElementById("premium");
