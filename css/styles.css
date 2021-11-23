@@ -6,6 +6,11 @@
     font-weight: bold;
 }
 
+button#confirmPayment {
+  margin-left: 20%;
+  margin-right: 50%;
+}
+
 .jumbotron {
   height: 50vh;
   padding: 5em inherit;
@@ -255,6 +260,10 @@ a.custom-card:hover {
 
 /* Estilos para el carrito. */
 
+#preSubTotalFinal, #subtotalFinal{
+  margin-left: 20%;
+}
+
 .payment-info {
     background: lightgreen;
     padding: 10px;
@@ -265,8 +274,12 @@ a.custom-card:hover {
 
 }
 
+.validated {
+background-color:green;
+}
+
 .product-details {
-    padding: 10px
+    padding: 10px;
 }
 
 body {
